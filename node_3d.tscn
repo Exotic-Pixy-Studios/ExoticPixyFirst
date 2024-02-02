@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dap7knxxjqqk3"]
+
+[ext_resource type="Script" path="res://CubeBodyBasicMovement.cs" id="1_k8aoe"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_q6tep"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6muc4"]
+albedo_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sgtq3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2vy6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_tfvih"]
+
+[sub_resource type="Environment" id="Environment_25j2i"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="CubeBody" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_k8aoe")
+
+[node name="Cube" type="MeshInstance3D" parent="CubeBody"]
+mesh = SubResource("BoxMesh_q6tep")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_6muc4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CubeBody"]
+shape = SubResource("BoxShape3D_sgtq3")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0)
+shape = SubResource("BoxShape3D_i2vy6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(-100, -4.37114e-08, 0, 8.74228e-06, -0.5, 0, 0, 0, 100, 0, 0, 0)
+mesh = SubResource("BoxMesh_tfvih")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.324419, 0.561101, -0.761524, -0.0389738, 0.812312, 0.581919, 0.94511, -0.159106, 0.285397, -11.9754, 11.2491, 7.3011)
+environment = SubResource("Environment_25j2i")
+fov = 57.7832
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99737, 0.00639324, 0.0721898, 0.0724723, 0.0879844, 0.993482, 0, 0.996101, -0.0882163, 0, 0, 0)
