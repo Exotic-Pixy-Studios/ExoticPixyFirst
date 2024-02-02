@@ -9,9 +9,11 @@ albedo_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sgtq3"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_i2vy6"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_tfvih"]
+size = Vector3(100, 0.5, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i2vy6"]
+size = Vector3(100, 0.05, 100)
 
 [sub_resource type="Environment" id="Environment_25j2i"]
 
@@ -31,16 +33,16 @@ shape = SubResource("BoxShape3D_sgtq3")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(100, 0, 0, 0, 0.5, 0, 0, 0, 100, 0, 0, 0)
-shape = SubResource("BoxShape3D_i2vy6")
-
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
-transform = Transform3D(-100, -4.37114e-08, 0, 8.74228e-06, -0.5, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(-1, -1.50996e-07, 0, 1.50996e-07, -1, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("BoxMesh_tfvih")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 7.10543e-15, 0, -7.10543e-15, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_i2vy6")
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.324419, 0.561101, -0.761524, -0.0389738, 0.812312, 0.581919, 0.94511, -0.159106, 0.285397, -11.9754, 11.2491, 7.3011)
+transform = Transform3D(0.324419, 0.561101, -0.761523, -0.0389738, 0.812312, 0.581919, 0.94511, -0.159106, 0.285398, -11.9754, 11.2491, 7.3011)
 environment = SubResource("Environment_25j2i")
 fov = 57.7832
 
